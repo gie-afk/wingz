@@ -24,9 +24,10 @@ class Ride(models.Model):
 
 class RideEvent(models.Model):
     id_ride_event = models.BigAutoField(primary_key=True)
-    ride = models.ForeignKey(Ride, on_delete=models.CASCADE, db_column="id_ride")
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    # foreign keys
+    ride = models.ForeignKey(Ride, on_delete=models.CASCADE, db_column="id_ride")
 
     class Meta:
         db_table = "ride_event"
